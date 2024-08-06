@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+    <title>Sample Quotation</title>
+    <meta name="description" content="Company quotation">
+    <meta name="author" content="SitePoint">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <b>Your company name here
+        <span style="float:right;font-size:30px;">
+            QUOTATION
+        </span>
+    </b>
+
+    <p>
+        Your company address line1 here
+        <br>Your company address line2 here
+        <span style="float:right;">
+            <img src="img/quote-pic.jpg" style="width:100px;height:100px;">
+        </span>
+        <br>Your company address line3 here
+
+    </p>
+    <br>
+    <p>Your ZIP code here</p>
+    <p id="bottom-line">
+        Phone: 12345678
+        <span class="tab">Mobile: 12345678</span>
+        <span style="float: right;">
+            <span id="currentDate">
+                2010/7/27
+            </span>
+        </span>
+    </p>
+
+
+
+    <p class="thick" style="text-align: center;">
+        Currency Dollar
+        <span class="tab">No.:A000000</span>
+        <span style="float:left;">
+            Page No. 2
+        </span>
+    </p>
+
+    <p style="text-align: center;">
+        Ship to:
+        <span class="tab">Sample customer name 001</span>
+        <span class="tab"></span>
+        <span class="tab"></span>
+        <span class="tab"></span>
+        <span style="float:left;">
+            To:
+            <span class="tab">Sample customer name 001</span>
+        </span>
+    </p>
+    <p style="text-align: center;">
+        Ship to address line1
+        <span style="float:left;">
+            <span class="tab"></span>   Sample address line1</span>
+
+        <br>
+        Ship to address line2
+        <span style="float:left;">
+            <span class="tab"></span>   Sample address line2</span>
+
+        <br>
+        Ship to address line3
+        <span style="float:left;">
+            <span class="tab"></span>   Sample address line3</span>
+
+    </p>
+    <table class="center">
+        <thead>
+            <tr>
+                <th>Salesperson</th>
+                <th>Your P.O. No.</th>
+                <th>Date Shipped</th>
+                <th>Shipped Via</th>
+                <th>F.O.B Point</th>
+                <th>Terms</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="bottom-line">
+                <td class="data">Administrator</td>
+                <td class="data">Sample PO#</td>
+                <td class="data">2011/3/18</td>
+                <td class="data">Courier Services</td>
+                <td class="data">U.S.A</td>
+                <td class="data">2 Weeks</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <button id="btnAdd">Add Item</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+    </button>
+    <table class="center">
+        <thead>
+            <tr>
+                <th>Quantity</th>
+                <th>Description</th>
+                <th>Unit Price</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody id="dataTable">
+
+        </tbody>
+        <tfooter>
+            <tr>
+                <td class="data"><br></td>
+                <td class="data"></td>
+                <td class="data"></td>
+                <td class="data"></td>
+            </tr>
+            <tr>
+                <td class="data"><br></td>
+                <td class="data"></td>
+                <td class="data"></td>
+                <td class="data"></td>
+            </tr>
+            <tr>
+                <td class="data"><br></td>
+                <td class="data"></td>
+                <td class="data"></td>
+                <td class="data"></td>
+            </tr>
+            <tr>
+                <td class="data"><br></td>
+                <td class="data"></td>
+                <td class="data"></td>
+                <td class="data"></td>
+            </tr>
+            <tr>
+                <td class="data"><br></td>
+                <td class="data"></td>
+                <td class="data"></td>
+                <td class="data"></td>
+            </tr>
+            <tr>
+                <td class="data"><br></td>
+                <td class="data"></td>
+                <td class="data"></td>
+                <td class="data"></td>
+            </tr>
+            <tr id="bottom-line">
+                <td class="data"><br></td>
+                <td class="data"></td>
+                <td class="data"></td>
+                <td class="data"></td>
+            </tr>
+
+            <tr id="sub-total">
+                <td colspan="3" class="data2 r colo"> Subtotal</td>
+                <td colspan="1" class="data2 r" id="bottom-line">
+                    <span id="subTotal">4,300.00</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" class="data2 r colo"> Sales Tax</td>
+                <td colspan="1" class="data2 r" id="bottom-line">430.00</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="data2 r colo"> Shipping &amp; Handling</td>
+                <td colspan="1" class="data2 r" id="bottom-line">0.00</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="data2 r colo"> Total Due</td>
+                <td colspan="1" class="data2 r" id="bottom-line">4,730.00</td>
+            </tr>
+        </tfooter>
+    </table>
+
+    <br>
+
+    <p class="cen">
+        <b>Make all checks payable to:</b>
+        <br><i>Your company name here</i>
+        <br><b>If you have any question concerning this invoices, call:</b>
+        <br>
+        <br><b>THANK YOU FOR YOUR BUSINESS</b>
+    </p>
+
+
+    <footer>WHO ARE YOU?</footer>
+
+    <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="js/script2.js"></script>
+
+</body>
+
+</html>

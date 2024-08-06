@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    table {
+      border-collapse: collapse;
+      /* width: 100%; */
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    th {
+      background-color: brown;
+      color: #f2f2f2;
+    }
+  </style>
+  <script>
+    function add() {
+      var id = document.getElementById("id").value
+      var name = document.getElementById("name").value
+      var email = document.getElementById("email").value
+      var salary = document.getElementById("salary").value
+
+      const tbodyRef = document.getElementById("data").getElementsByTagName('tbody')[0];
+
+      // Insert a row at the end of table
+      var newRow = tbodyRef.insertRow();
+
+      // Insert a cell at the end of the row
+      var idCell = newRow.insertCell();
+      var newText = document.createTextNode(id);
+      idCell.appendChild(newText);
+
+      var nameCell = newRow.insertCell();
+      var newText = document.createTextNode(name);
+      nameCell.appendChild(newText);
+
+      var emailCell = newRow.insertCell();
+      var newText = document.createTextNode(email);
+      emailCell.appendChild(newText);
+
+      var salaryCell = newRow.insertCell();
+      var newText = document.createTextNode(salary);
+      salaryCell.appendChild(newText);
+    }
+
+    function loadData() {
+      // fetch('data.json')
+      // .then(  function(data){
+      //   console.debug('Data has arrived, transform it')
+      //   return data.json()  // convert text to json
+      // })
+      // .then(  (data) => {
+      //   console.debug("JSON object is ready")
+      // })
+
+
+
+      fetch('data.json')
+        .then((data) => {
+          return data.json()
+        })
+        .then((data) => {
+
+          data = data.sort((a, b) => { return b.salary - a.salary })
+
+          console.debug(data)
+          var i = 1;
+          const tbodyRef = document.getElementById("data").getElementsByTagName('tbody')[0];
+          data.forEach(element => {
+            console.debug(element)
+
+            // Insert a row at the end of table
+            var newRow = tbodyRef.insertRow();
+
+            // Insert a cell at the end of the row
+            var idCell = newRow.insertCell();
+            var newText = document.createTextNode(i);
+            idCell.appendChild(newText);
+            i++
+
+            var nameCell = newRow.insertCell();
+            var newText = document.createTextNode(element.name);
+            nameCell.appendChild(newText);
+
+            var emailCell = newRow.insertCell();
+            var newText = document.createTextNode(element.email);
+            emailCell.appendChild(newText);
+
+            var salaryCell = newRow.insertCell();
+            var newText = document.createTextNode(element.salary);
+            salaryCell.appendChild(newText);
+
+          });
+        })
+    }
+  </script>
+</head>
+
+<body onload="loadData()">
+  <table>
+    <tr>
+      <td>
+        <div style="background-color: rgb(216, 150, 172);">
+          <label for="formId">ID</label> <input type="number" id="id" name="id"><br>
+          <label for="formId">Name</label> <input type="text" id="name" name="name"><br>
+          <label for="formId">Email</label> <input type="email" id="email" name="email"><br>
+          <label for="formId">Salary</label> <input type="number" id="salary" name="salary" min="0"><br>
+          <button onclick="add()">Add</button>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+
+        <div>
+          <table id="data">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Salary</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+        </div>
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+
+</html>

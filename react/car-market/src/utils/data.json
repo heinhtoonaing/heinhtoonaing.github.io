@@ -1,0 +1,7 @@
+[
+    { "brand": "Honda", "model": "Accord", "value": 20 },
+    { "brand": "Honda", "model": "Civic", "value": 30 },
+    { "brand": "Honda", "model": "City", "value": 50 },
+    { "brand": "Toyota", "model": "Camry", "value": 100 }
+  ]
+  

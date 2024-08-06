@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="author" content="Chayapol Moemeng">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    table {
+      border-collapse: collapse;
+      /* width: 100%; */
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    th {
+      background-color: brown;
+      color: #f2f2f2;
+    }
+  </style>
+  <script>
+    function add() {
+      var id = $('#id').val()
+      var name = $('#name2').val()
+      var email = $('#email').val()
+      var salary = $('#salary').val()
+
+      const tbodyRef = $('#data tbody')
+      tbodyRef.before(
+            `<tr>
+            <td>${id}</td>
+            <td>${name}</td>
+            <td>${email}</td>
+            <td>${salary}</td>
+            </tr>`)
+    }
+
+    function loadData() {
+      $.getJSON("data.json", (data) => {
+        const tbodyRef = $('#data tbody')
+        
+        $.each(data, (key, val) => {
+          console.debug(key, val)
+          tbodyRef.before(
+            `<tr>
+            <td>${key + 1}</td>
+            <td>${val.name}</td>
+            <td>${val.email}</td>
+            <td>${val.salary}</td>
+            </tr>`)
+
+          // TODO it's reverse?
+        });
+      });
+    }
+  </script>
+</head>
+
+<body onload="loadData()">
+  <table>
+    <tr>
+      <td>
+        <div style="background-color: rgb(216, 150, 172);">
+          <label for="formId">ID</label> <input type="number" id="id" name="id"><br>
+          <label for="formId">Name</label> <input type="text" id="name2" name="name"><br>
+          <label for="formId">Email</label> <input type="email" id="email" name="email"><br>
+          <label for="formId">Salary</label> <input type="number" id="salary" name="salary" min="0"><br>
+          <button onclick="add()">Add</button>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <table id="data">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Salary</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+        </div>
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+
+</html>

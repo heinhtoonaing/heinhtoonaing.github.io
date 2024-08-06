@@ -1,0 +1,7 @@
+[
+    {"id": 1,"name":"Door Visor", "price": 100},
+    {"id": 2,"name":"Mud Guard", "price": 200},
+    {"id": 3,"name":"Seat Cover", "price": 300},
+    {"id": 4,"name":"Car Perfume", "price": 400},
+    {"id": 5,"name":"Car Charger", "price": 500}
+]

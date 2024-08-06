@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Personal Webpage</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&display=swap');
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ff6e7f, #bfe9ff);
+            color: #333;
+        }
+        header {
+            background-color: #ff6e7f;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+            position: relative;
+        }
+        header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: -1;
+            transform: skewY(-5deg);
+            transform-origin: top left;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #ff6e7f;
+            color: white;
+            transform: scale(1.1);
+        }
+        .container {
+            padding: 40px 20px;
+        }
+        .section {
+            margin: 40px 0;
+        }
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #ff6e7f;
+        }
+        .section p {
+            font-size: 1.2em;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .projects ul {
+            list-style: none;
+            padding: 0;
+        }
+        .projects li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .projects li:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>spiderman</h1>
+        <p>Software Developer | Tech Enthusiast | Blogger</p>
+    </header>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container">
+        <div id="about" class="section">
+            <h2>About Me</h2>
+            <p>Hello! I'm John Doe, a passionate software developer with over 10 years of experience in web development and software engineering. I love creating innovative solutions and sharing my knowledge through blogging.</p>
+        </div>
+        <div id="projects" class="section projects">
+            <h2>Projects</h2>
+            <ul>
+                <li><strong>Project Alpha:</strong> A revolutionary app for task management.</li>
+                <li><strong>Project Beta:</strong> A web-based platform for online learning.</li>
+                <li><strong>Project Gamma:</strong> An open-source library for data visualization.</li>
+            </ul>
+        </div>
+        <div id="blog" class="section">
+            <h2>Blog</h2>
+            <p>Welcome to my blog where I share insights on technology, programming tips, and industry trends. Stay tuned for my latest posts!</p>
+        </div>
+        <div id="contact" class="section">
+            <h2>Contact</h2>
+            <p>Feel free to reach out to me via email at spider@example.com or connect with me on LinkedIn.</p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 spiderman. All rights reserved.</p>
+    </footer>
+</body>
+</html>

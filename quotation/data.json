@@ -1,0 +1,26 @@
+[
+  {
+      "quantity": 1.5,
+      "description": "Stock Item Example 0001",
+      "unitPrice": 900.00,
+      "amount": 1450.00
+  },
+  {
+      "quantity": 1,
+      "description": "Stock Item Example 0002",
+      "unitPrice": 450.00,
+      "amount": 2000.00
+  },
+  {
+      "quantity": 1,
+      "description": "Service Charge Invoicing Item 001",
+      "unitPrice": 100.00,
+      "amount": 200.00
+  },
+  {
+      "quantity": 1,
+      "description": "Service Charge Invoicing Item 002, Additional line 1 for this item, Additional line 2 for this item",
+      "unitPrice": 200.00,
+      "amount": 600.00
+  }
+]
