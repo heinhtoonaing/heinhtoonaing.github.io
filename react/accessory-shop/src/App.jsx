@@ -1,14 +1,17 @@
 import { useRef, useState } from 'react';
+import { useLocalStorage } from 'react-use';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import productList from './accessory-products.json';
 import DataTable from './components/DataTable';
+import { TotalPriceContext } from './context.jsx';
 
 function App() {
   const pRef = useRef();
   const qRef = useRef();
   const [price, setPrice] = useState(0);
-  const [selectedItems, setSelectedItems] = useState([]);
-  const [filteredSelectedItems, setFilteredSelectedItems] = useState([]);
+  const [selectedItems, setSelectedItems,remove] = useLocalStorage("selected-items",[]);
+  const [filteredSelectedItems, setFilteredSelectedItems] = useState([...selectedItems]);
+  const [totalPrice,setTotalPrice] = useState(0);
 
   const handleAdd = () => {
     const pid = pRef.current.value;
@@ -50,6 +53,7 @@ function App() {
   };
 
   return (
+  <TotalPriceContext.Provider value={{totalPrice, setTotalPrice}}>
     <Container>
       <Row>
         <Col xs={6}>
@@ -90,6 +94,8 @@ function App() {
         </Col>
       </Row>
     </Container>
+    <h1>Total Price: {totalPrice}</h1>
+    </TotalPriceContext.Provider>
   );
 }
 

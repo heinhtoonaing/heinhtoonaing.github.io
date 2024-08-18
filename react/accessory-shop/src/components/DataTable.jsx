@@ -1,8 +1,15 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Table, Button } from 'react-bootstrap';
+import { TotalPriceContext } from '../context.jsx';
 
 const DataTable = ({ data, onDelete, onSearch }) => {
+  const { totalPrice, setTotalPrice } = React.useContext(TotalPriceContext);  // Correct destructuring
   const sRef = useRef();
+
+  useEffect(() => {
+    const sum = data.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    setTotalPrice(sum);
+  }, [data, setTotalPrice]);
 
   const handleSearch = () => {
     const keyword = sRef.current.value;
@@ -11,12 +18,12 @@ const DataTable = ({ data, onDelete, onSearch }) => {
 
   const handleSortAscending = () => {
     const sortedData = [...data].sort((a, b) => a.name.localeCompare(b.name));
-    onSearch('', sortedData);
+    onSearch('', sortedData); // Assuming onSearch is also used for sorting
   };
 
   const handleSortDescending = () => {
     const sortedData = [...data].sort((a, b) => b.name.localeCompare(a.name));
-    onSearch('', sortedData);
+    onSearch('', sortedData); // Assuming onSearch is also used for sorting
   };
 
   return (
@@ -53,7 +60,7 @@ const DataTable = ({ data, onDelete, onSearch }) => {
             ))
           ) : (
             <tr>
-              <td colSpan="5">No items to display</td>
+              <td colSpan="4">No items to display</td>
             </tr>
           )}
         </tbody>
