@@ -94,7 +94,7 @@ function App() {
         </Col>
       </Row>
     </Container>
-    <h1>Total Price: {totalPrice}</h1>
+    <h1>Total Price: {totalPrice.toFixed(2)}</h1>
     </TotalPriceContext.Provider>
   );
 }
