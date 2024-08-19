@@ -1,17 +1,13 @@
 import { Form, useLoaderData, useFetcher } from "react-router-dom";
 import { getContact, updateContact } from "../contacts";
 
+// Loader function to fetch a specific contact
 export async function loader({ params }) {
   const contact = await getContact(params.contactId);
-  if (!contact) {
-    throw new Response("", {
-      status: 404,
-      statusText: "Not Found",
-    });
-  }
   return { contact };
 }
 
+// Action function to update the contact's favorite status
 export async function action({ request, params }) {
   const formData = await request.formData();
   return updateContact(params.contactId, {
@@ -19,6 +15,25 @@ export async function action({ request, params }) {
   });
 }
 
+// Favorite component to handle favorite toggling
+function Favorite({ contact }) {
+  const fetcher = useFetcher();
+  const favorite = contact.favorite;
+
+  return (
+    <fetcher.Form method="post">
+      <button
+        name="favorite"
+        value={favorite ? "false" : "true"}
+        aria-label={favorite ? "Remove from favorites" : "Add to favorites"}
+      >
+        {favorite ? "★" : "☆"}
+      </button>
+    </fetcher.Form>
+  );
+}
+
+// Contact component to display and interact with contact details
 export default function Contact() {
   const { contact } = useLoaderData();
 
@@ -45,7 +60,11 @@ export default function Contact() {
 
         {contact.twitter && (
           <p>
-            <a target="_blank" rel="noopener noreferrer" href={`https://twitter.com/${contact.twitter}`}>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={`https://twitter.com/${contact.twitter}`}
+            >
               {contact.twitter}
             </a>
           </p>
@@ -71,29 +90,5 @@ export default function Contact() {
         </div>
       </div>
     </div>
-  );
-}
-
-function Favorite({ contact }) {
-  const fetcher = useFetcher();
-
-  const favorite = fetcher.formData
-    ? fetcher.formData.get("favorite") === "true"
-    : contact.favorite;
-
-  return (
-    <fetcher.Form method="post">
-      <button
-        name="favorite"
-        value={favorite ? "false" : "true"}
-        aria-label={
-          favorite
-            ? "Remove from favorites"
-            : "Add to favorites"
-        }
-      >
-        {favorite ? "★" : "☆"}
-      </button>
-    </fetcher.Form>
   );
 }

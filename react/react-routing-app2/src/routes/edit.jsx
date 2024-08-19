@@ -1,16 +1,13 @@
-import {
-  Form,
-  useLoaderData,
-  redirect,
-  useNavigate,
-} from "react-router-dom";
+import { Form, useLoaderData, redirect, useNavigate } from "react-router-dom";
 import { updateContact, getContact } from "../contacts";
 
+// Loader function to fetch the contact data based on the contactId parameter
 export async function loader({ params }) {
   const contact = await getContact(params.contactId);
   return { contact };
 }
 
+// Action function to handle form submission and update the contact
 export async function action({ request, params }) {
   const formData = await request.formData();
   const updates = Object.fromEntries(formData);
@@ -18,9 +15,10 @@ export async function action({ request, params }) {
   return redirect(`/contacts/${params.contactId}`);
 }
 
+// EditContact component
 export default function EditContact() {
-  const { contact } = useLoaderData();
-  const navigate = useNavigate();
+  const { contact } = useLoaderData(); // Fetches the contact data
+  const navigate = useNavigate(); // Allows navigation within the app
 
   return (
     <Form method="post" id="contact-form">
@@ -73,7 +71,7 @@ export default function EditContact() {
         <button
           type="button"
           onClick={() => {
-            navigate(-1);
+            navigate(-1); // Navigates back to the previous page when "Cancel" is clicked
           }}
         >
           Cancel
