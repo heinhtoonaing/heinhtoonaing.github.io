@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/car-analytics/static/css/main.d1dfb5ff.css",
+    "main.js": "/car-analytics/static/js/main.3e9e9009.js",
+    "static/js/453.0e76b0c6.chunk.js": "/car-analytics/static/js/453.0e76b0c6.chunk.js",
+    "index.html": "/car-analytics/index.html",
+    "main.d1dfb5ff.css.map": "/car-analytics/static/css/main.d1dfb5ff.css.map",
+    "main.3e9e9009.js.map": "/car-analytics/static/js/main.3e9e9009.js.map",
+    "453.0e76b0c6.chunk.js.map": "/car-analytics/static/js/453.0e76b0c6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d1dfb5ff.css",
+    "static/js/main.3e9e9009.js"
+  ]
+}

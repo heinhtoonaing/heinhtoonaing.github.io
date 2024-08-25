@@ -1,0 +1,36 @@
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.send('Welcome to the math server!');
+});
+
+app.get('/math/add', (req, res) => {
+  const op1 = parseFloat(req.query.op1);
+  const op2 = parseFloat(req.query.op2);
+
+  if (isNaN(op1) || isNaN(op2)) {
+    return res.status(400).send('Invalid numbers provided.');
+  }
+
+  const result = op1 + op2;
+  res.send(`<result of ${op1} + ${op2}>: ${result}`);
+});
+
+app.post('/math/add', (req, res) => {
+  const { op1, op2 } = req.body;
+
+  if (isNaN(op1) || isNaN(op2)) {
+    return res.status(400).send({ error: 'Invalid numbers provided.' });
+  }
+
+  const result = op1 + op2;
+  res.json({ result: result });
+});
+
+const PORT = 8080;
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
